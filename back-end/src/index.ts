@@ -13,8 +13,8 @@ import path from "path";
 
 import cors from "cors";
 
-const REACT_APP_URL = process.env.REACT_APP_URL;
-var corsOptions = {
+const REACT_APP_URL: string | undefined = process.env.REACT_APP_URL;
+var corsOptions: corsOptionsInterface = {
   origin: [`${REACT_APP_URL}`],
 };
 
@@ -23,6 +23,7 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 import formRouter from "./routes/basicDetailsFormRoutes";
+import { corsOptionsInterface } from "./types/interfaces";
 
 app.use("/", formRouter);
 

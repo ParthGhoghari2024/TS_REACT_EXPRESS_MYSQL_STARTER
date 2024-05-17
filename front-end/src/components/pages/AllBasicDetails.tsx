@@ -25,7 +25,7 @@ function AllBasicDetailsPage() {
   useEffect(() => {
     if (fetchedFlag === 1) return;
     fetchedFlag = 1;
-    const fetchNow = async () => {
+    const fetchNow = async (): Promise<void> => {
       const allBasicDetailsFetch: Response = await fetch(`${BACKEND_URL}/all`);
 
       const allBasicDetailsJson: responseInterface<allBasicDetailsInterface> =
@@ -39,10 +39,16 @@ function AllBasicDetailsPage() {
   }, []);
   return (
     <>
-      {/* {console.log(allBasicDetailsArr)} */}
       {allBasicDetailsArr &&
         allBasicDetailsArr.map((basicDetailObj) => {
-          console.log(basicDetailObj);
+          return (
+            <>
+              <br />
+              {Object.values(basicDetailObj).map((ele) => {
+                return <span className="mx-2">{ele}</span>;
+              })}
+            </>
+          );
         })}
     </>
   );
