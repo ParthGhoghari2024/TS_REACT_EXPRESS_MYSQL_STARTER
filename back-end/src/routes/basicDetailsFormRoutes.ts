@@ -5,8 +5,8 @@ import {
   getAllBasicDetailsController,
 } from "../controllers/basicDetaIlsFormController";
 import {
+  basicDetailsValidateRules,
   validateBasicDetailsMiddlware,
-  basicDetailsValidate,
 } from "../middleware/validateBasicDetails";
 
 const router: Router = express.Router();
@@ -16,7 +16,7 @@ router
   .get(basicDetailsFormPageController)
 
   .post(
-    basicDetailsValidate(),
+    basicDetailsValidateRules(),
     validateBasicDetailsMiddlware,
     basicDetailsFormPostController
   );

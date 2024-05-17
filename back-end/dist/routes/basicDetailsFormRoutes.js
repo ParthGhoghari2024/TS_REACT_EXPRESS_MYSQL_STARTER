@@ -10,6 +10,6 @@ const router = express_1.default.Router();
 router
     .route("/")
     .get(basicDetaIlsFormController_1.basicDetailsFormPageController)
-    .post((0, validateBasicDetails_1.basicDetailsValidate)(), validateBasicDetails_1.validateBasicDetailsMiddlware, basicDetaIlsFormController_1.basicDetailsFormPostController);
+    .post((0, validateBasicDetails_1.basicDetailsValidateRules)(), validateBasicDetails_1.validateBasicDetailsMiddlware, basicDetaIlsFormController_1.basicDetailsFormPostController);
 router.route("/all").get(basicDetaIlsFormController_1.getAllBasicDetailsController);
 exports.default = router;

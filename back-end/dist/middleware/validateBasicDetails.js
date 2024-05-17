@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.basicDetailsValidate = exports.validateBasicDetailsMiddlware = void 0;
+exports.basicDetailsValidateRules = exports.validateBasicDetailsMiddlware = void 0;
 const express_validator_1 = require("express-validator");
-const basicDetailsValidate = () => {
+const basicDetailsValidateRules = () => {
     return [
         (0, express_validator_1.body)("full_name")
             .trim()
@@ -29,7 +29,7 @@ const basicDetailsValidate = () => {
             .withMessage({ field: "zipcode", type: "d-type" }),
     ];
 };
-exports.basicDetailsValidate = basicDetailsValidate;
+exports.basicDetailsValidateRules = basicDetailsValidateRules;
 const validateBasicDetailsMiddlware = (req, res, next) => {
     const errors = (0, express_validator_1.validationResult)(req);
     if (errors.isEmpty()) {

@@ -1,7 +1,7 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import { BasicDetailsFormInterface } from "../controllers/basicDetaIlsFormController";
 import { body, validationResult, ValidationError } from "express-validator";
-const basicDetailsValidate = () => {
+const basicDetailsValidateRules = () => {
   return [
     body("full_name")
       .trim()
@@ -47,4 +47,4 @@ const validateBasicDetailsMiddlware: RequestHandler = (
   });
 };
 
-export { validateBasicDetailsMiddlware, basicDetailsValidate };
+export { validateBasicDetailsMiddlware, basicDetailsValidateRules };
